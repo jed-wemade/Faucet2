@@ -1,7 +1,7 @@
 name: Create Jira issue # 1
 on: # 2
   issues: 
-    types: [opened]
+    types: [opened, edited]
     
 jobs: # 3
   create-issue: # 4
@@ -21,4 +21,4 @@ jobs: # 3
         project: MD
         issuetype: Task
         summary: '${{ github.event.issue.title }}'
-        description: '${{ github.event.issue.html_url }}'
+        description: '${{ github.event.issue.html_url }} \n ${{ github.event.issue.body }}'
